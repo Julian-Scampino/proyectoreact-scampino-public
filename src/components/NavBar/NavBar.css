@@ -1,0 +1,66 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+header{
+    background-color: #ff5050;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100px;
+    border-bottom: 2px solid black;
+}
+div#nombreLogo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center
+}
+div#cartOrdenes{
+    display: flex;
+    flex-direction: row;
+}
+header h1{
+    font-size: 26px;
+}
+header img{
+    width: 70px;
+    height: 70px;
+}
+header nav{
+    width: 500px;
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+header a{
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    font-weight: 500;
+}
+header #nombreLogo a:hover, #cartwidget:hover, #ordenes-nav:hover {
+    background-color: #ff5d5d;
+    color: white;
+    border-bottom: 1px solid white;
+}
+header a:active{
+    color: rgb(10, 109, 255);
+}
+
+
+/* ---------------------- tablet -------------------- */ 
+@media only screen and (min-width: 0px) and (max-width: 767px){
+    header{
+        flex-direction: column;
+        height: 215px;
+    }
+
+    header nav{
+        width:100%;
+        flex-direction: column;
+
+    }
+
+}
