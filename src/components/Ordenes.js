@@ -64,6 +64,6 @@ const estilo = {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: 'space-evenly'
+        justifyContent: 'center'
     }
 }

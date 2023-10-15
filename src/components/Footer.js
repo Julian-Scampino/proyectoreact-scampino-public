@@ -6,13 +6,13 @@ const Footer = () => {
     );
 };
 let style = {
-    display: "flex",
-    justifyContent: "center",
-    backgroundColor: "#ff5050",
-    height: "63px",
-    alignItems: "center",
-    width: '100%',
-    borderTop: '2px solid black'
+    display: 'flex',
+justifyContent: 'center',
+height: '63px',
+alignItems: 'center',
+width: '100%',
+backgroundColor: '#5f9ea0',
+boxShadow: '0px -2px 6px 1px #00000017'
 };
 
 export default Footer;

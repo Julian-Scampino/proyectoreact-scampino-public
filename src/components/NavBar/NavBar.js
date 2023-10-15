@@ -18,28 +18,27 @@ const NavBar = () => {
             })
             .catch((err) => console.log(err));
     }, []); */
-    const categorias = ["electronics", "jewelery", "men's clothing", "women's clothing"]
+    //const categorias = ["electronics", "jewelery", "men's clothing", "women's clothing"]
 
     return (
         <header>
             <div id="nombreLogo">
                 <NavLink to="/">
-                    <h1>
+                    <p id="nav-titulo">
                         Tienda
                         Online
-                    </h1>
+                    </p >
                 </NavLink>
                 <NavLink to="/">
-                    <img src={logo} alt="logo" />
+                    <img src={logo} alt="logo"  />
                 </NavLink>
             </div>
 
             <nav>
-                {categorias.map((categorias) => (
-                    <NavLink style={{textTransform: 'capitalize'}}key={categorias} to={`/category/${categorias}`}>
-                        {categorias}
-                    </NavLink>
-                ))}
+                <NavLink className="nav-category"style={{textTransform: 'capitalize'}} to={`/category/electronics`}>electronics</NavLink>
+                <NavLink className="nav-category"style={{textTransform: 'capitalize'}} to={`/category/jewelery`}>jewelery</NavLink>
+                <NavLink className="nav-category"style={{textTransform: 'capitalize'}} to={`/category/men's clothing`}>men's-clothing</NavLink>
+                <NavLink className="nav-category"style={{textTransform: 'capitalize'}} to={`/category/women's clothing`}>women's-clothing</NavLink>
             </nav>
             <div id="cartOrdenes">
                 <CartWidget />

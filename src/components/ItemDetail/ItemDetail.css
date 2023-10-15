@@ -1,0 +1,105 @@
+.todoDetail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    /* height: 100%; */
+    margin: 0% 5%;
+}
+h1#todoDetail-title {
+    text-align: center;
+}
+.todoDetail-contenedorFotoTexto {
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+}
+.todoDetail-contenedorFoto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10px 0px;
+    flex-basis: 45%;
+}
+img.todoDetail-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+}
+.todoDetail-contenedorexto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0px 5%;
+    margin: 10px 0px;
+    flex-basis: 45%;
+}
+.todoDetail-contenedorexto-precio {
+    font-size: 22px;
+    margin: 20px 0;
+}
+.count-contenedor{
+    display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 0;
+        gap: 10px
+}
+.count-contenedor div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* margin: 10px 0; */
+    gap: 15%;
+    justify-content: center;
+}
+.count-contenedor p{
+    font-size: 23px;
+}
+.count-contenedor-masMenos{
+    display: flex;
+    align-items: center;
+    border: none;
+    background: #00ffff00;
+}
+.count-contenedor-masMenos svg{
+    color: #4e6fa3;
+}
+.count-contenedor-botonAgregarCarrito {
+    border-radius: 356px;
+    border: 1px solid #00000026;
+    background: #f9fad4;
+    box-shadow: 0 0 5px 1px #5555552e;
+    padding: 1%;
+}
+.detail-link-finalizarCompra{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+
+button.todoDetail-contenedor-botonComprar {
+    border-radius: 28px;
+    border: none;
+    background: #f9fad4;
+    box-shadow: 0 0 5px 0 #0000005e;
+    padding: 1%;
+    align-self: center;
+}
+
+@media screen and (min-width: 1px)and (max-width: 768px) {
+    .todoDetail-contenedorFotoTexto {
+        flex-direction: column;
+    }
+    .todoDetail-contenedorFoto {
+        flex-basis: auto;
+    }
+    .todoDetail-contenedorexto {
+        flex-basis: auto;
+    }
+
+}

@@ -1,46 +1,48 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import './item.css'
 
 const Item = ({ titulo, precio, img, id }) => {
     const [hovered, setHovered] = useState(false);
+    console.log({ titulo, precio, img, id });
     return (
         <div
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            style={hovered ? style.contenedorHOVER : style.contenedor}
+            className="card"
         >
-            <h2 style={style.titulo}>{titulo}</h2>
-            <p> {`Precio: $${precio}`}</p>
-            <img style={style.img} src={img} alt=""></img>
+            <img src={img} alt=""></img>
+            <h2 >{titulo}</h2>
+            <p> {`$${precio}`}</p>
             <NavLink to={`/item/${id}`}>
-                <button style={style.boton}>Ver mas</button>
+                Ver mas
             </NavLink>
         </div>
     );
 };
-const style = {
+/* const style = {
     contenedor: {
         border: "2px solid black",
-        width: 250,
-        height: 320,
+        width: 210,
+        height: 350,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "space-evenly",
+        justifyContent: "space-between",
         backgroundColor: "#acdeff",
-        borderRadius: "5%",
-        boxShadow: "0px 0px 2px 0.3px black"
+        borderRadius: "3%",
+        boxShadow: "0px 0px 2px 0.3px black",
     },
     contenedorHOVER: {
         border: "2px solid black",
-        width: "250px",
-        height: "320px",
+        width: 210,
+        height: 350,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "space-evenly",
+        justifyContent: "space-between",
         backgroundColor: "rgb(172, 222, 255)",
-        borderRadius: "5%",
+        borderRadius: "3%",
         transform: "scale(1.01)",
         filter: "brightness(105%)",
         boxShadow: "0px 0px 7px 0.5px black",
@@ -51,12 +53,14 @@ const style = {
         WebkitBoxOrient: "vertical",
         overflow: "hidden",
         textOverflow: "ellipsis",
-        fontSize: "21px",
+        fontSize: "15px",
         textAlign: "center",
     },
     img: {
-        width: 100,
-        height: 100,
+        // width: 100,
+        //height: 100,
+        height: 210,
+        borderRadius: "3%",    
     },
     boton: {
         borderRadius: 5,
@@ -65,5 +69,5 @@ const style = {
         marginBottom: 20,
         fontSize: 18,
     },
-};
+}; */
 export default Item;

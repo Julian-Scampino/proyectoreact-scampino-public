@@ -2,7 +2,8 @@ import ItemCount from "./ItemCount";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useContext } from "react";
-import { contexto } from "./Context/CartContext";
+import { contexto } from "../Context/CartContext";
+import "./ItemDetail.css"
 
 const ItemDetail = ({ item }) => {
     const { addItem } = useContext(contexto);
@@ -13,39 +14,36 @@ const ItemDetail = ({ item }) => {
         addItem({ ...item, cantidad: unidades });
         setComprar(false);
     };
-
     return (
-        <div style={style.contenedorRow}>
-                <h2 style={style.titulo}>{item.title}</h2>
-            <div style={style.contenedorFotoDescription}>
-                <div style={style.contenedorColumn40}>
-                    <img style={style.img} src={item.image} alt=""></img>
+        <div className="todoDetail" /* style={style?.contenedorRow} */>
+                {/* <h1 id='todoDetail-title' >{item.title}</h1> */}
+            <div className="todoDetail-contenedorFotoTexto" /* style={style?.contenedorFotoDescription} */>
+                <div className="todoDetail-contenedorFoto" /* style={style?.contenedorImg} */>
+                    <img className="todoDetail-img" /* style={style?.img} */ src={item.image} alt=""></img>
                 </div>
-                <div style={style.contenedorColumn60}>
-                    <p>
-                        <strong style={style.resaltado}>ID:</strong> {item.id}
+                <div className="todoDetail-contenedorexto" /* style={style?.contenedorTexto} */>
+                <h1 id='todoDetail-title' /* style={style?.titulo} */>{item.title}</h1>
+                    <p className="todoDetail-contenedorexto-precio">
+                        <strong /* style={style?.resaltado} */>Precio: </strong>{" "}
+                        ${item.price}
                     </p>
-                    <p>
-                        <strong style={style.resaltado}>Precio:</strong>{" "}
-                        {item.price}
-                    </p>
-                    <p>
-                        <strong style={style.resaltado}>Categoría:</strong>{" "}
+                    <p className="todoDetail-contenedorexto-categoria">
+                        <strong /* style={style?.resaltado} */>Categoría:</strong>{" "}
                         {item.category}
                     </p>
-                    <p>
-                        <strong style={style.resaltado}>Descripción:</strong>{" "}
+                    <p className="todoDetail-contenedorexto-descripcion">
+                        <strong /* style={style?.resaltado} */>Descripción:</strong>{" "}
                         {item.description}
                     </p>
                     {comprar ? (
                         <ItemCount
-                            stock={item.stock}
+                            stock={item.stock ?? 5}
                             initial={1}
                             onAdd={onAdd}
                         />
-                    ) : (
-                        <NavLink to="/cart">
-                            <button style={style.boton}>Terminar compra</button>
+                    ) : ( 
+                        <NavLink className='detail-link-finalizarCompra' to="/cart">
+                            <button className="todoDetail-contenedor-botonComprar" /* style={style?.boton} */>Terminar compra</button>
                         </NavLink>
                     )}
                 </div>{" "}
@@ -55,17 +53,18 @@ const ItemDetail = ({ item }) => {
 };
 export default ItemDetail;
 
-const style = {
+/* const style = {
     contenedorRow: {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "space-evenly",
         height: "100%",
+        margin: "0% 5%"
     },
     titulo: {
-        textAlign: "center",
-        display: "flex",
+         textAlign: "center",
+         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "row",
@@ -74,17 +73,17 @@ const style = {
     },
     contenedorFotoDescription: {
         display: "flex",
-        flexDirection:  "column",
-        margin: "10px 0"
+        flexDirection: window.innerWidth < 767 ? "column" : "row",
+        gap: "10%",
     },
-    contenedorColumn60: {
+    contenedorTexto: {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-evenly",
         padding: '0px 5%',
         margin: "10px 0"
     },
-    contenedorColumn40: {
+    contenedorImg: {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -107,4 +106,4 @@ const style = {
         fontSize: 18,
         padding: '2px'
     },
-};
+}; */
