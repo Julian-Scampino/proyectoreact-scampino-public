@@ -5,14 +5,12 @@
 }
 .contenedor-noHayProductos button{
     border-radius: 354px;
-    background: rgb(44 129 255);
+    background: rgb(106 181 183);
     color: white;
-    margin-bottom: 20px;
     font-size: 14px;
-    padding: 5.3% 6%;
     border: 1px solid #0000006b;
     margin: 10px 0px;
-    min-width: max-content;
+    padding: 0.2em 0.8em;
 }
 #cart-contenedor{
     display: flex;
@@ -20,7 +18,7 @@
     align-items: center;
     min-width: 0px;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     padding: 2% 0;
 }
 .cart-productos {
@@ -45,7 +43,7 @@
     text-overflow: ellipsis;
 }
 .cart-productos-btn {
-    background-color: #2c81ff;
+    background-color: #6ab5b7;
     height: 100%;
     width: 30px;
     color: white;
@@ -56,7 +54,7 @@
 }
 #cart-btn-vaciarCart {
     border-radius: 354px;
-    background: rgb(44 129 255);
+    background: rgb(106 181 183);
     color: white;
     font-size: 14px;
     border: 1px solid #0000006b;
@@ -65,6 +63,6 @@
 }
 @media only screen and (min-width: 0px) and (max-width: 767px){
     .cart-productos{
-        width: 95%;
+        width: 95vw;
     }
 }

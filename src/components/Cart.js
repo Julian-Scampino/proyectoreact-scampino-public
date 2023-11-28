@@ -6,9 +6,11 @@ import {doc, addDoc, collection, serverTimestamp, updateDoc} from 'firebase/fire
 import {db} from '../firebase/firebase'
 import './Cart.css'
 import React from "react"
+import ClipLoader from "react-spinners/ClipLoader"
 
 const Cart = () =>{
     const [idVentas, setIdVenta] = useState('')
+    const [loading, setLoading] = useState(false)
 
     const {removeItem, clear, productosCarrito, precioTotal} = useContext(contexto)
 
@@ -19,19 +21,26 @@ const Cart = () =>{
         clear()
     }
     const finalizarCompra = (usuario) =>{
+        setLoading(true)
         const ventasCollection = collection(db, 'ventas')
         addDoc(ventasCollection, {usuario, productosCarrito, precioTotal, date: serverTimestamp()})
-        .then(res => setIdVenta(res.id))
-        let copiaArray = [...productosCarrito]
-        copiaArray.forEach((element) => {
+        .then(res => {
+            setIdVenta(res.id)
+            setLoading(false)
+            clear()
+        })
+        /*let copiaArray = [...productosCarrito]
+            copiaArray.forEach((element) => {
+            console.log(copiaArray);
             let updateCollection = doc(db, 'productos', element.id)
             updateDoc(updateCollection, {stock: (element.stock - element.cantidad)})
-        });
-        clear()
+        }); */
+        
     }
     return(
-        <div id="cart-contenedor">
-            {productosCarrito.length <= 0 && <div className="contenedor-noHayProductos"><h3>No hay productos todavia en el carrito</h3><NavLink to="/"><button  >Volver a Home</button></NavLink></div>}
+        idVentas == '' ? <div id="cart-contenedor">
+            <h1>Carrito</h1>
+            {productosCarrito.length <= 0 && <div className="contenedor-noHayProductos"><h3>No hay productos en el carrito en este momento</h3><NavLink to="/"><button id="carrito-boton-VolverAHome" >Volver a Home</button></NavLink></div>}
             {productosCarrito.length > 0 && productosCarrito.map((element) =>
             <div className="cart-productos" key={element.id}>
                 <h3 className="cart-productos-title">{element.title}</h3>
@@ -46,8 +55,10 @@ const Cart = () =>{
             {productosCarrito.length > 0 && <h4 id="cart-precioTotal">{`Precio total: $${precioTotal}`}</h4>}
             {productosCarrito.length > 0 && <button id="cart-btn-vaciarCart" onClick={vaciar}>Vaciar carrito</button>}
             {productosCarrito.length > 0 && <Formulario finalizarCompra={finalizarCompra}/>}
-            {idVentas != '' && <h4>{`El Id de tu compra es ${idVentas}`}</h4>}
-        </div>
+            {loading && <ClipLoader size={200} cssOverride={{margin: 'auto', alingSelf : "center", position: "absolute"}}/>}
+            
+        </div> : idVentas != '' && <div id="cart-contenedor"><h1>Carrito</h1><p style={{textAlign: "center"}}>{`¡Su compra fue un exito, gracias por comprar!`} <br></br>{`El Id de tu compra es:`} <span style={{fontWeight: 'bold',
+textDecorationLine: 'underline'}}>{`${idVentas}`}</span><br></br>Puede revisar su compra en la seccion de Ordenes introduciendo el Id de su compra</p></div>
     )
 }
 

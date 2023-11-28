@@ -11,13 +11,14 @@
     border-bottom: 2px solid black;
 } */
 header {
-    background-color: #5f9ea0 ;
+    background-color: #72d1d4 ;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     /* height: 100px; */
     /* border-bottom: 2px solid black; */
     box-shadow: 0px 2px 6px 1px #00000017;
+    border-bottom: 1px solid #00000021;
 }
 div#nombreLogo{
     display: flex;
@@ -35,8 +36,9 @@ div#cartOrdenes{
 }
 header #nav-titulo{
     font-size: 26px;
+    text-align: center;
 }
-header img{
+header #nombreLogo svg{
     width: 70px;
     height: 70px;
 }
@@ -56,29 +58,33 @@ header a{
     text-transform: capitalize;
 }
 header #nombreLogo a:hover, .nav-category:hover, #cartwidget:hover, #ordenes-nav:hover {
-    background-color: #ff5d5d;
-    color: white;
-    border-bottom: 1px solid white;
+    background-color: #ffd07c;
+    color: black;
 }
 header a:active{
     color: rgb(10, 109, 255);
 }
 #cartwidget{
     position: relative;
-    padding: 8px;
+    padding: 2px;
 }
-#cartwidget p{
+#cartwidget svg{
+    font-size: 51px;
+}
+#cartwidget #nav-cart-textoCantItems{
     position: absolute;
     top: 0;
     right: 0;
     color: #000000;
-    background: #fff999;
+    background: rgb(255 239 156);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50% 50%;
-    height: 19px;
     width: 19px;
+    height: 19px;
+    /* font-family: monospace; */
+    padding: 0.9em;
 }
 
 

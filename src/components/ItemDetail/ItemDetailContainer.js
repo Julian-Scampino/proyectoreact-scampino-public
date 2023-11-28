@@ -24,9 +24,17 @@ const ItemDetailContainer = () =>{
         .catch(err => console.log(err))
         .finally(()=> setLoading(false))
         */
-        fetch(`https://fakestoreapi.com/products/${productId}`)
+        /* fetch(`https://fakestoreapi.com/products/${productId}`)
             .then(res=>res.json())
             .then(json=>setProducto(json))
+            .catch(err => console.log(err))
+        .finally(()=> setLoading(false)) */
+        fetch("../productos.json")
+            .then(res=>res.json())
+            .then(json=>{
+                const producFiltrado = json.find((e)=>e.id == productId)
+                setProducto(producFiltrado)
+                })
             .catch(err => console.log(err))
         .finally(()=> setLoading(false))
     },[productId])

@@ -6,10 +6,11 @@ import {contexto} from '../Context/CartContext'
 
 const IconoCarrito = () => {
     const {cantidadDeItems} = useContext(contexto)
+
     return(<NavLink to='/Cart'>
         <div id="cartwidget" >
-            <FaCartPlus style={{fontSize: '30px'}}/>
-            {cantidadDeItems > 0 && <p>{cantidadDeItems}</p>}
+            <FaCartPlus/>
+            {cantidadDeItems > 0 && <p style={{width: `${3}ch`, height: `${3}ch`}} id="nav-cart-textoCantItems">{cantidadDeItems < 99 ? cantidadDeItems : `99+`}</p>}
         </div>
         </NavLink>
     )

@@ -4,20 +4,27 @@ import './item.css'
 
 const Item = ({ titulo, precio, img, id }) => {
     const [hovered, setHovered] = useState(false);
-    console.log({ titulo, precio, img, id });
     return (
+        <NavLink to={`/item/${id}`} style={{textDecoration: 'none',
+        color: 'black'}}> 
         <div
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            className="card"
-        >
-            <img src={img} alt=""></img>
-            <h2 >{titulo}</h2>
-            <p> {`$${precio}`}</p>
-            <NavLink to={`/item/${id}`}>
-                Ver mas
-            </NavLink>
+            className="card-contenedor-padre"
+        >   <div className="card-contenedor-DeHijos">
+                <img src={require(`../../public/Imagenes-productos/${img}`)} alt=""></img>
+                <h2 >{titulo}</h2>
+                <p> {`$${precio}`}</p>
+                <button className="boton-verMas"> 
+                    Ver mas
+                </button>
+            </div>
+            {id % 3 == 0 && <div className="ribbon-content">
+                <span className="ribbon">Oferta -30%</span>
+            </div> }
+            
         </div>
+        </NavLink>
     );
 };
 /* const style = {

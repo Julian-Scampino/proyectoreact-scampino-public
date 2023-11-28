@@ -1,6 +1,7 @@
 import ItemCount from "./ItemCount";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+
 import { useContext } from "react";
 import { contexto } from "../Context/CartContext";
 import "./ItemDetail.css"
@@ -9,43 +10,71 @@ const ItemDetail = ({ item }) => {
     const { addItem } = useContext(contexto);
 
     const [comprar, setComprar] = useState(true);
+    const [verMas, setVermas] = useState(false)
 
     const onAdd = (unidades) => {
         addItem({ ...item, cantidad: unidades });
         setComprar(false);
     };
+
+  const pRef = useRef(null);
+  const spanRef = useRef(null);
+
+  const [visible, setVisible] = useState(false);
+
+  const onVerMas = () =>{
+    setVermas(true);
+  }
+
+  function checkHeight() {
+    const textHeight = spanRef.current.scrollHeight;
+    const pHeight = pRef.current.clientHeight;
+    if (textHeight > pHeight) {
+      setVisible(true);
+    } else {
+      setVisible(false);
+    }
+  }
+
+  useEffect(() => {
+    checkHeight();
+  }, [verMas]);
+
     return (
         <div className="todoDetail" /* style={style?.contenedorRow} */>
                 {/* <h1 id='todoDetail-title' >{item.title}</h1> */}
             <div className="todoDetail-contenedorFotoTexto" /* style={style?.contenedorFotoDescription} */>
                 <div className="todoDetail-contenedorFoto" /* style={style?.contenedorImg} */>
-                    <img className="todoDetail-img" /* style={style?.img} */ src={item.image} alt=""></img>
+                    <img className="todoDetail-img" /* style={style?.img} */ src={require(`../../../public/Imagenes-productos/${item.image}`)} alt=""></img>
                 </div>
                 <div className="todoDetail-contenedorexto" /* style={style?.contenedorTexto} */>
                 <h1 id='todoDetail-title' /* style={style?.titulo} */>{item.title}</h1>
                     <p className="todoDetail-contenedorexto-precio">
-                        <strong /* style={style?.resaltado} */>Precio: </strong>{" "}
+                        <strong style={{textDecoration: 'underline'}} /* style={style?.resaltado} */>Precio:</strong>{" "}
                         ${item.price}
                     </p>
                     <p className="todoDetail-contenedorexto-categoria">
-                        <strong /* style={style?.resaltado} */>Categoría:</strong>{" "}
+                        <strong style={{textDecoration: 'underline'}} /* style={style?.resaltado} */>Categoría:</strong>{" "}
                         {item.category}
                     </p>
-                    <p className="todoDetail-contenedorexto-descripcion">
-                        <strong /* style={style?.resaltado} */>Descripción:</strong>{" "}
-                        {item.description}
-                    </p>
-                    {comprar ? (
-                        <ItemCount
-                            stock={item.stock ?? 5}
-                            initial={1}
-                            onAdd={onAdd}
-                        />
-                    ) : ( 
-                        <NavLink className='detail-link-finalizarCompra' to="/cart">
-                            <button className="todoDetail-contenedor-botonComprar" /* style={style?.boton} */>Terminar compra</button>
-                        </NavLink>
-                    )}
+                    <div ref={pRef}>
+                        <strong style={{textDecoration: 'underline'}} /* style={style?.resaltado} */>Descripción:</strong>{" "}
+                        <p ref={spanRef} className={ verMas == false ? "todoDetail-contenedorexto-descripcion-corto" : "todoDetail-contenedorexto-descripcion-largo"}>{item.description}</p> 
+                        <strong id="texto-verMas" onClick={()=> onVerMas()} style={{display: visible == true ? "inline-block" : "none"}}>Leer mas</strong>{" "}
+                    </div>
+                    <div className="count-contenedor" /* style={style.contenedorCount} */>
+                        {comprar ? (
+                            <ItemCount
+                                stock={item.stock ?? 5}
+                                initial={1}
+                                onAdd={onAdd}
+                            />
+                        ) : ( 
+                            <NavLink className='detail-link-finalizarCompra' to="/cart">
+                                <button className="todoDetail-contenedor-botonComprar" /* style={style?.boton} */>Terminar compra</button>
+                            </NavLink>
+                        )}
+                    </div>
                 </div>{" "}
             </div>
         </div>
