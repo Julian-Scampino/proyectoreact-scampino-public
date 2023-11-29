@@ -40,7 +40,7 @@ const Cart = () =>{
     return(
         idVentas == '' ? <div id="cart-contenedor">
             <h1>Carrito</h1>
-            {productosCarrito.length <= 0 && <div className="contenedor-noHayProductos"><h3>No hay productos en el carrito en este momento</h3><NavLink to="/"><button id="carrito-boton-VolverAHome" >Volver a Home</button></NavLink></div>}
+            {productosCarrito.length <= 0 && <div className="contenedor-noHayProductos"><p id="no-hayProductos">No hay productos en el carrito en este momento</p><NavLink to="/"><button id="carrito-boton-VolverAHome" >Volver a Home</button></NavLink></div>}
             {productosCarrito.length > 0 && productosCarrito.map((element) =>
             <div className="cart-productos" key={element.id}>
                 <h3 className="cart-productos-title">{element.title}</h3>
