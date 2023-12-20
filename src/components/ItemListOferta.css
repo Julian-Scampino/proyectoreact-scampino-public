@@ -2,7 +2,6 @@ div#contenedor-de-ofertas {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
     margin: 20px 0px;
 }
 div#contenedor-de-ofertas h2 {
@@ -75,7 +74,24 @@ p.oferta-parrafo-titulo-producto {
     transform: rotate(45deg);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
-
+  .ribbon::before {
+    content: "";
+    position: absolute;
+    width: 22%;
+    height: 100%;
+    left: -100%; /* Start from outside the span */
+    top: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0) 100%); /* Create a white gradient */
+    animation: shine 2.5s linear infinite; /* Animate the pseudo element */
+  }
+  @keyframes shine {
+    from {
+      left: -100%; /* Start from outside the span */
+    }
+    to {
+      left: 100%; /* End at outside the span */
+    }
+  }
 
   @media only screen and (min-width: 0px) and (max-width: 767px){
     p.oferta-parrafo-titulo-producto{

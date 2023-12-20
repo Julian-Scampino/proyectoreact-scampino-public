@@ -1,20 +1,15 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
 import './item.css'
 
 const Item = ({ titulo, precio, img, id }) => {
-    const [hovered, setHovered] = useState(false);
     return (
         <NavLink to={`/item/${id}`} style={{textDecoration: 'none',
         color: 'black'}}> 
-        <div
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            className="card-contenedor-padre"
-        >   <div className="card-contenedor-DeHijos">
-                <img src={require(`../../public/Imagenes-productos/${img}`)} alt=""></img>
-                <h2 >{titulo}</h2>
-                <p> {`$${precio}`}</p>
+        <div className="card-contenedor-padre">   
+            <div className="card-contenedor-DeHijos">
+                <img loading="lazy" src={require(`../../public/Imagenes-productos/${img}`)} alt={`${titulo}`}></img>
+                <p className="card-titulo">{titulo}</p>
+                <p className="card-precio"> {`$${precio}`}</p>
                 <button className="boton-verMas"> 
                     Ver mas
                 </button>

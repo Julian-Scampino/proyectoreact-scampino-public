@@ -27,10 +27,10 @@ const ItemList = ({items}) =>{
     return(
         <div className='contenedor-de-ItemList-con-titulo'>
           {categoryId ? <h2 className="titulo-todosLosProductos">Todos los productos de {categoryId}</h2> : <h2 className="titulo-todosLosProductos">Todos los productos</h2>}
-        <Carousel containerClass="carousel-container" partialVisible={true} infinite={true} autoPlaySpeed={4000} autoPlay={false} responsive={responsive}>
-
+        {items?.length > 0 ? <Carousel containerClass="carousel-container" partialVisible={true} /* infinite={true} */ autoPlaySpeed={4000} autoPlay={false} responsive={responsive}>
         {items.map((productos) => <Item key={productos.id} id={productos.id} titulo={productos.title} precio={productos.price} descripcion={productos.description} img={productos.image}/>)}
-	</Carousel></div>
+	      </Carousel> : <p>Ups! en este momento no hay productos, vuelva en otro momento</p>}
+        </div>
 
     )
 }

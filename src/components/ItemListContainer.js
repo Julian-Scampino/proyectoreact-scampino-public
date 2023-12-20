@@ -43,7 +43,7 @@ const ItemListContainer = ({greeting}) =>{
     return(
         <>
             
-            {loading ? <ClipLoader size={200} cssOverride={{margin: 'auto', alingSelf : "center"}}/> : 
+            {loading ? <ClipLoader size={200} speedMultiplier={0.7}  cssOverride={{margin: 'auto', alingSelf : "center", borderWidth: '6px'}}/> : 
             <main>
                 <h1 style={{textAlign:"center"}}>{categoryId}</h1>
                 <ItemListOferta items={productos}/>

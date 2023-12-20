@@ -14,15 +14,13 @@ let footer = {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        height: "63px",
         alignItems: "center",
-        width: "100%",
+        padding: '15px 0',
         boxShadow: "0px -2px 6px 1px #00000017",
         backgroundColor: "rgb(51 77 78)",
         color: "white"
     },
     parrafo: {
-        fontsize: "20px",
         color: 'inherit'
     },
     enlaceLinkedin: {
@@ -30,7 +28,7 @@ let footer = {
         alignItems: "center",
         justifyContent: "center",
         textDecoration: "none",
-        gap: "0.3em",
+        gap: '6px',
         color: 'rgb(255 208 124)'
     },
     svg:{

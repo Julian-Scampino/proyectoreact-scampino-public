@@ -41,7 +41,7 @@ const ItemDetailContainer = () =>{
 
     return(
         <>
-            {loading ? <ClipLoader size={200} cssOverride={{margin: 'auto', alingSelf : "center"}}/> : <ItemDetail item={producto}/>}
+            {loading ? <ClipLoader size={200} speedMultiplier={0.7} cssOverride={{margin: 'auto', alingSelf : "center", borderWidth: '6px'}}/> : <ItemDetail item={producto}/>}
         </>
     )
 }

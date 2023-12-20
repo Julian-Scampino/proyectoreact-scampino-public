@@ -31,7 +31,7 @@ img.todoDetail-img {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    padding: 0px 5%;
+    padding: 0px 1%;
     margin: 10px 0px;
     flex-basis: 45%;
     background: #ffffff7d;
@@ -83,6 +83,8 @@ img.todoDetail-img {
     align-items: center;
     border: none;
     background: #00ffff00;
+    padding: 0;
+    margin: 0;
 }
 .count-contenedor-masMenos svg{
     color: #6ab5b7;
@@ -90,11 +92,9 @@ img.todoDetail-img {
     height: 1.3em;
 }
 .count-contenedor-botonAgregarCarrito {
-    border-radius: 356px;
-    border: 1px solid #00000026;
     background: #ffd07c;
     box-shadow: 0 0 5px 1px #5555552e;
-    padding: 0.3em 0.7em;
+    margin: 0;
 }
 .detail-link-finalizarCompra{
     display: flex;
@@ -106,11 +106,9 @@ img.todoDetail-img {
 
 
 button.todoDetail-contenedor-botonComprar {
-    border-radius: 356px;
-    border: 1px solid #00000026;
     background-color: #61e1e6;
     box-shadow: 0 0 5px 1px #5555552e;
-    padding: 0.3em 0.7em;
+    margin: 0;
 }
 
 @media screen and (min-width: 1px)and (max-width: 768px) {

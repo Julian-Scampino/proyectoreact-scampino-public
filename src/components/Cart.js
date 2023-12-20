@@ -55,7 +55,7 @@ const Cart = () =>{
             {productosCarrito.length > 0 && <h4 id="cart-precioTotal">{`Precio total: $${precioTotal}`}</h4>}
             {productosCarrito.length > 0 && <button id="cart-btn-vaciarCart" onClick={vaciar}>Vaciar carrito</button>}
             {productosCarrito.length > 0 && <Formulario finalizarCompra={finalizarCompra}/>}
-            {loading && <ClipLoader size={200} cssOverride={{margin: 'auto', alingSelf : "center", position: "absolute"}}/>}
+            {loading && <ClipLoader size={200} speedMultiplier={0.7}  cssOverride={{margin: 'auto', alingSelf : "center", position: "absolute", borderWidth: '6px', opacity: '1'}}/>}
             
         </div> : idVentas != '' && <div id="cart-contenedor"><h1>Carrito</h1><p style={{textAlign: "center"}}>{`¡Su compra fue un exito, gracias por comprar!`} <br></br>{`El Id de tu compra es:`} <span style={{fontWeight: 'bold',
 textDecorationLine: 'underline'}}>{`${idVentas}`}</span><br></br>Puede revisar su compra en la seccion de Ordenes introduciendo el Id de su compra</p></div>

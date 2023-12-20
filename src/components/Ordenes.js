@@ -56,7 +56,7 @@ const Ordenes = () =>{
                 <input style={estilo.input} type="text" id='orden' name='orden' /* onChange={traer} */></input>
                 <button style={estilo.boton} type="submit">Enviar</button>
             </form>
-            {loading ? <ClipLoader size={200} cssOverride={{margin: 'auto', alingSelf : "center", position: "absolute"}}/> :
+            {loading ? <ClipLoader size={200} speedMultiplier={0.7} cssOverride={{margin: 'auto', alingSelf : "center", position: "absolute", borderWidth: '6px'}}/> :
             productosOrden2?.length > 0 && 
             <div style={estilo.contenedorProductosOrdenes}>
                 {productosOrden.productosCarrito.map((element) =>
@@ -80,7 +80,6 @@ const estilo = {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        gap: '30px',
         textAlign: 'center',
         minWidth: '0px',
         width: '100%',
@@ -101,12 +100,8 @@ const estilo = {
         boxShadow: 'rgba(0, 0, 0, 0.13) 0px 0px 3px 0px'
     },
     boton: {
-        borderRadius: '354px',
         background: '#72d1d4',
         color: 'black',
-        fontSize: '14px',
-        padding: '0.2em 0.8em',
-        border: '1px solid rgba(0, 0, 0, 0.42)'
     },
     contenedorProductosOrdenes:{
         width: '100%',

@@ -67,13 +67,9 @@ const style = {
         },
 
         boton: {
-            borderRadius: '354px',
             background: 'rgb(255 208 124)',
             color: 'black',
             margin: '10px 0px',
-            fontSize: '14px',
-            padding: '0.2em 0.8em',
-            border: '1px solid rgba(0, 0, 0, 0.42)'
         }
             
 }

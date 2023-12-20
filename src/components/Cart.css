@@ -4,13 +4,9 @@
     align-items: center;
 }
 .contenedor-noHayProductos button{
-    border-radius: 354px;
-    background: rgb(106 181 183);
-    color: white;
-    font-size: 14px;
-    border: 1px solid #0000006b;
+    background: rgb(114, 209, 212);
+    color: black;
     margin: 10px 0px;
-    padding: 0.2em 0.8em;
 }
 #no-hayProductos{
     text-align: center;
@@ -57,13 +53,9 @@
     /* border: 1px solid black; */
 }
 #cart-btn-vaciarCart {
-    border-radius: 354px;
-    background: rgb(106 181 183);
-    color: white;
-    font-size: 14px;
-    border: 1px solid #0000006b;
+    background: rgb(114, 209, 212);
+    color: black;
     margin: 10px 0px;
-    padding: 0.2em 0.8em;
 }
 @media only screen and (min-width: 0px) and (max-width: 767px){
     .cart-productos{
